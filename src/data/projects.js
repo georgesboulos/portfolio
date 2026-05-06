@@ -1,0 +1,113 @@
+export const projects = [
+  {
+    slug: "baileys-rebranding",
+    title: "Bailey's Rebranding",
+    category: "branding",
+    image: "/projects/baileys/cover.png",
+    images: ["/projects/baileys/cover.png", "/projects/baileys/box.png"],
+    description:
+      "A rebranding project focused on creating a bold and contemporary visual identity.",
+    details: [
+      "Brand strategy and positioning",
+      "Logo exploration and refinement",
+      "Color palette and typography system",
+      "Mockups and final brand applications",
+    ],
+  },
+  {
+    title: "LaSev",
+    category: "branding",
+    image: "/projects/lasev.png",
+    slug: "#",
+  },
+  {
+    title: "Auditorios",
+    category: "branding",
+    image: "/projects/auditorios.png",
+    slug: "#",
+  },
+  {
+    title: "NDU EYE26",
+    category: "branding",
+    image: "/projects/ndu-eye26.png",
+    slug: "#",
+  },
+  {
+    title: "Split Orbit",
+    category: "branding",
+    image: "/projects/split-orbit.png",
+    slug: "#",
+  },
+  {
+    title: "NGLCT",
+    category: "branding",
+    image: "/projects/nglct.png",
+    slug: "#",
+  },
+  {
+    title: "Barilla",
+    category: "packaging",
+    image: "/projects/barilla.png",
+    slug: "#",
+  },
+  {
+    title: "Adidas Latin to Arabic",
+    category: "typography",
+    image: "/projects/adidas-latin-to-arabic.png",
+    slug: "#",
+  },
+  {
+    title: "Kufi Tote Bag Design",
+    category: "typography",
+    image: "/projects/kufi-tote-bag-design.png",
+    slug: "#",
+  },
+  {
+    title: "Ornen",
+    category: "logos",
+    image: "/projects/ornen.png",
+    slug: "#",
+  },
+  {
+    title: "Trident Shapes",
+    category: "logos",
+    image: "/projects/trident-shapes.png",
+    slug: "#",
+  },
+  {
+    title: "NDU Music Club",
+    category: "logos",
+    image: "/projects/ndu-music-club.png",
+    slug: "#",
+  },
+  {
+    title: "Grandeyroots",
+    category: "illustrations",
+    image: "/projects/grandeyroots.png",
+    slug: "#",
+  },
+  {
+    title: "We Dey",
+    category: "illustrations",
+    image: "/projects/we-dey.png",
+    slug: "#",
+  },
+  {
+    title: "Presswork Book",
+    category: "printing",
+    image: "/projects/presswork-book.png",
+    slug: "#",
+  },
+  {
+    title: "Rhythm Drums Magazine",
+    category: "printing",
+    image: "/projects/rhythm-drums-magazine.png",
+    slug: "#",
+  },
+  {
+    title: "Photography",
+    category: "photography",
+    image: "/projects/photography.png",
+    slug: "#",
+  },
+];
