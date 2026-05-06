@@ -18,7 +18,7 @@ const ENL231 = () => {
     },
     {
       title: "Video Resume",
-      type: "image",
+      type: "video",
       content: "/projects/enl231/video-resume.png",
     },
     {
@@ -35,6 +35,11 @@ const ENL231 = () => {
       title: "Learning Style Graphic",
       type: "image",
       content: "/projects/enl231/learning-style.png",
+    },
+    {
+      title: "Tree",
+      type: "image",
+      content: "/projects/enl231/tree.png",
     },
   ];
 
