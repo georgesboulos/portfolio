@@ -44,15 +44,20 @@ const Projects = () => {
         </div>
 
         <div className="projects__grid">
-          {filteredProjects.map((project) => (
+          {filteredProjects.map((project, index) => (
             <Link
               key={project.slug}
-              className="project-card"
+              className={`project-card project-card--${project.category}`}
               to={`/project/${project.slug}`}
             >
+              <span className="project-card__number">
+                {String(index + 1).padStart(2, "0")}
+              </span>
               <div
                 className="project-card__img"
-                style={{ backgroundImage: `url(${project.image})` }}
+                style={{
+                  backgroundImage: `url("${encodeURI(project.image)}")`,
+                }}
               >
                 <div className="project-card__overlay">
                   <span className="project-card__view">Open Project</span>

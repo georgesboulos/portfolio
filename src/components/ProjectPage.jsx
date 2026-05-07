@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { projects } from "../data/projects";
-import Cursor from "./Cursor";
 
 const ProjectPage = () => {
   const { slug } = useParams();
@@ -14,7 +13,11 @@ const ProjectPage = () => {
       <main className="project-page">
         <div className="container">
           <p>Project not found.</p>
-          <Link to="/" className="btn btn--ghost">
+          <Link
+            to="/portfolio"
+            state={{ scrollTo: "projects" }}
+            className="btn btn--ghost"
+          >
             Back Home
           </Link>
         </div>
@@ -22,7 +25,8 @@ const ProjectPage = () => {
     );
   }
 
-  const projectImages = project.images || [project.image];
+  const projectImages = project.images || (project.image ? [project.image] : []);
+  const projectDetails = project.details || [];
 
   const nextImage = () => {
     setCurrentImage((prev) =>
@@ -38,21 +42,25 @@ const ProjectPage = () => {
 
   return (
     <>
-      <Cursor />
-
       <main className="project-page">
         <div className="container">
-          <Link to="/" className="btn btn--ghost project-page__back">
+          <Link
+            to="/portfolio"
+            state={{ scrollTo: "projects" }}
+            className="btn btn--ghost project-page__back"
+          >
             Back
           </Link>
 
           <div className="project-page__hero">
             <div className="project-page__image-wrap">
-              <img
-                src={projectImages[currentImage]}
-                alt={project.title}
-                className="project-page__image"
-              />
+              {projectImages.length > 0 && (
+                <img
+                  src={projectImages[currentImage]}
+                  alt={project.title}
+                  className="project-page__image"
+                />
+              )}
 
               {projectImages.length > 1 && (
                 <>
@@ -88,13 +96,19 @@ const ProjectPage = () => {
             <div className="project-page__content">
               <span className="section-label">{project.category}</span>
               <h1 className="section-title">{project.title}</h1>
-              <p className="project-page__description">{project.description}</p>
+              {project.description && (
+                <p className="project-page__description">
+                  {project.description}
+                </p>
+              )}
 
-              <ul className="project-page__list">
-                {project.details.map((item, index) => (
-                  <li key={index}>{item}</li>
-                ))}
-              </ul>
+              {projectDetails.length > 0 && (
+                <ul className="project-page__list">
+                  {projectDetails.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
+                </ul>
+              )}
             </div>
           </div>
         </div>
