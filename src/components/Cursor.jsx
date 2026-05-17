@@ -21,6 +21,8 @@ const Cursor = () => {
 
     document.addEventListener("mousemove", handleMouseMove);
 
+    let animationFrameId;
+
     const animateCursor = () => {
       followerX += (mouseX - followerX) * 0.1;
       followerY += (mouseY - followerY) * 0.1;
@@ -28,7 +30,7 @@ const Cursor = () => {
       cursorFollower.style.left = followerX + "px";
       cursorFollower.style.top = followerY + "px";
 
-      requestAnimationFrame(animateCursor);
+      animationFrameId = requestAnimationFrame(animateCursor);
     };
 
     animateCursor();
@@ -57,6 +59,7 @@ const Cursor = () => {
     // 🧼 CLEANUP (VERY IMPORTANT)
     return () => {
       document.removeEventListener("mousemove", handleMouseMove);
+      cancelAnimationFrame(animationFrameId);
 
       elements.forEach((el) => {
         el.removeEventListener("mouseenter", handleEnter);

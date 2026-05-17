@@ -7,6 +7,7 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Marquee from "./components/Marquee";
 import MascotCursorEyes from "./components/MascotCursorEyes";
+import Cursor from "./components/Cursor";
 import ProjectPage from "./components/ProjectPage";
 import Projects from "./components/Projects";
 import ScrollProgress from "./components/ScrollProgress";
@@ -50,6 +51,7 @@ function App() {
   return (
     <>
       <ScrollProgress />
+      <Cursor />
       <MascotCursorEyes />
       <Routes>
         <Route path="/" element={<HomePage />} />

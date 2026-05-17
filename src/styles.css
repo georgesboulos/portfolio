@@ -3501,13 +3501,7 @@ section {
 }
 
 /* Performance pass */
-body {
-  cursor: auto;
-}
-
-.background-motion,
-.cursor,
-.cursor-follower {
+.background-motion {
   display: none;
 }
 
