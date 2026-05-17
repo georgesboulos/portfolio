@@ -103,11 +103,11 @@ const ProjectPage = () => {
               )}
 
               {projectDetails.length > 0 && (
-                <ul className="project-page__list">
+                <div className="project-page__list">
                   {projectDetails.map((item, index) => (
-                    <li key={index}>{item}</li>
+                    <p key={index}>{item}</p>
                   ))}
-                </ul>
+                </div>
               )}
             </div>
           </div>

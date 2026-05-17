@@ -75,6 +75,7 @@ export const projects = [
     image: "/projects/adidas/adidas-cover.jpg",
     images: [
       "/projects/adidas/adidas-cover.jpg",
+      "/projects/adidas/adidassketch.jpg",
       "/projects/adidas/adidas1.jpg",
       "/projects/adidas/adidas2.jpg",
       "/projects/adidas/adidas3.jpg",

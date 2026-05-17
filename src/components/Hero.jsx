@@ -16,10 +16,11 @@ const Hero = () => {
         </h1>
 
         <p className="hero__intro">
-          Expert in Adobe Illustrator and Photoshop, I design compelling visual
-          solutions that seamlessly integrate creativity and technical
-          excellence. Collaborative and detail-oriented, I readily adapt to
-          varied project requirements.
+          Visual Communicator skilled in transforming ideas into refined visual
+          experiences through thoughtful design, branding, and digital
+          storytelling. Detail-oriented and adaptable, with a strong balance
+          between creativity and technical precision, delivering impactful
+          solutions across a wide range of visual communication projects.
         </p>
 
         <div className="hero__actions">

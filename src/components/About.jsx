@@ -13,15 +13,16 @@ const About = () => {
               <span className="about__image-tag">Visual Communicator</span>
             </div>
             <p className="about__text">
-              Expert in Adobe Illustrator and Photoshop, I design compelling
-              visual solutions that seamlessly integrate creativity and
-              technical excellence. Collaborative and detail-oriented, I readily
-              adapt to varied project requirements.
+              Visual Communicator focused on creating purposeful and engaging
+              visual identities through branding, digital design, and creative
+              problem-solving. Combining creativity with precision and
+              adaptability, I aim to develop impactful visual solutions that
+              communicate clearly across different platforms and audiences.
               <br />
               <br />
-              As a multi-instrumentalist (drummer for eight years and guitarist
-              for five) my background brings a distinctive sense of rhythm and
-              balance to every composition.
+              As a multi-instrumentalist: drummer for eight years and guitarist
+              for five, my musical background influences my design approach
+              through rhythm, balance, timing, and composition.
             </p>
             <div className="about__badges">
               <span className="badge">Collaborative</span>

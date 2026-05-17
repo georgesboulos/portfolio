@@ -1,19 +1,19 @@
 import { useEffect, useRef } from "react";
 
 const colors = [
-  "rgba(151, 203, 54, 0.3)",
-  "rgba(113, 152, 41, 0.2)",
-  "rgba(127, 81, 182, 0.28)",
-  "rgba(95, 61, 137, 0.18)",
+  "rgba(151, 203, 54, 0.14)",
+  "rgba(113, 152, 41, 0.1)",
+  "rgba(127, 81, 182, 0.12)",
+  "rgba(95, 61, 137, 0.09)",
 ];
 
 const createShape = (width, height, index) => {
-  const size = 12 + Math.random() * 54;
+  const size = 18 + Math.random() * 42;
   return {
     x: Math.random() * width,
     y: Math.random() * height,
-    vx: (Math.random() - 0.5) * 0.44,
-    vy: (Math.random() - 0.5) * 0.44,
+    vx: (Math.random() - 0.5) * 0.14,
+    vy: (Math.random() - 0.5) * 0.14,
     size,
     color: colors[index % colors.length],
     phase: Math.random() * Math.PI * 2,
@@ -36,15 +36,15 @@ const BackgroundMotion = () => {
 
     const canvas = canvasRef.current;
     const context = canvas.getContext("2d");
-    const cursor = { x: -1000, y: -1000 };
     let animationFrame;
     let shapes = [];
     let width = 0;
     let height = 0;
     let pixelRatio = 1;
+    let lastFrameTime = 0;
 
     const resize = () => {
-      pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+      pixelRatio = 1;
       width = window.innerWidth;
       height = window.innerHeight;
       canvas.width = width * pixelRatio;
@@ -53,7 +53,7 @@ const BackgroundMotion = () => {
       canvas.style.height = `${height}px`;
       context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
 
-      const count = Math.min(34, Math.max(18, Math.floor(width / 44)));
+      const count = Math.min(14, Math.max(8, Math.floor(width / 120)));
       shapes = Array.from({ length: count }, (_, index) =>
         createShape(width, height, index),
       );
@@ -93,25 +93,19 @@ const BackgroundMotion = () => {
     };
 
     const animate = (time) => {
+      if (time - lastFrameTime < 66) {
+        animationFrame = requestAnimationFrame(animate);
+        return;
+      }
+
+      lastFrameTime = time;
       context.clearRect(0, 0, width, height);
 
       shapes.forEach((shape) => {
-        const dx = shape.x - cursor.x;
-        const dy = shape.y - cursor.y;
-        const distance = Math.hypot(dx, dy);
-        const repelDistance = 150;
-
-        if (distance < repelDistance) {
-          const force = (repelDistance - distance) / repelDistance;
-          const angle = Math.atan2(dy, dx);
-          shape.vx += Math.cos(angle) * force * 0.42;
-          shape.vy += Math.sin(angle) * force * 0.42;
-        }
-
-        shape.vx += Math.sin(time * 0.0007 + shape.phase) * 0.003;
-        shape.vy += Math.cos(time * 0.0008 + shape.phase) * 0.003;
-        shape.vx *= 0.985;
-        shape.vy *= 0.985;
+        shape.vx += Math.sin(time * 0.00035 + shape.phase) * 0.0012;
+        shape.vy += Math.cos(time * 0.0004 + shape.phase) * 0.0012;
+        shape.vx *= 0.992;
+        shape.vy *= 0.992;
         shape.x += shape.vx;
         shape.y += shape.vy;
 
@@ -133,27 +127,13 @@ const BackgroundMotion = () => {
       animationFrame = requestAnimationFrame(animate);
     };
 
-    const updateCursor = (event) => {
-      cursor.x = event.clientX;
-      cursor.y = event.clientY;
-    };
-
-    const hideCursor = () => {
-      cursor.x = -1000;
-      cursor.y = -1000;
-    };
-
     resize();
     window.addEventListener("resize", resize);
-    window.addEventListener("pointermove", updateCursor);
-    window.addEventListener("pointerleave", hideCursor);
     animationFrame = requestAnimationFrame(animate);
 
     return () => {
       cancelAnimationFrame(animationFrame);
       window.removeEventListener("resize", resize);
-      window.removeEventListener("pointermove", updateCursor);
-      window.removeEventListener("pointerleave", hideCursor);
     };
   }, []);
 

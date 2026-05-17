@@ -17,11 +17,6 @@ const Header = () => {
             </a>
           </li>
           <li>
-            <a href="#enl231" className="nav__link">
-              ENL231
-            </a>
-          </li>
-          <li>
             <a href="#contact" className="nav__link">
               Contact
             </a>
