@@ -1,20 +1,32 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { projects } from "../data/projects";
 
-const Projects = () => {
-  const categories = [
-    "all",
-    "branding",
-    "packaging",
-    "typography",
-    "logos",
-    "illustrations",
-    "printing",
-    "photography",
-  ];
+const categories = [
+  "all",
+  "branding",
+  "packaging",
+  "typography",
+  "logos",
+  "illustrations",
+  "printing",
+  "photography",
+];
 
-  const [activeCategory, setActiveCategory] = useState("all");
+const Projects = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const categoryParam = searchParams.get("discipline");
+  const activeCategory = categories.includes(categoryParam)
+    ? categoryParam
+    : "all";
+
+  const selectCategory = (category) => {
+    if (category === "all") {
+      setSearchParams({});
+      return;
+    }
+
+    setSearchParams({ discipline: category });
+  };
 
   const filteredProjects =
     activeCategory === "all"
@@ -24,7 +36,7 @@ const Projects = () => {
   return (
     <section className="projects" id="projects">
       <div className="container">
-        <span className="section-label">02. Projects</span>
+        <span className="section-label">03. Projects</span>
         <h2 className="section-title">
           Selected <em>Work</em>
         </h2>
@@ -36,7 +48,7 @@ const Projects = () => {
               className={`filter-btn ${
                 activeCategory === category ? "active" : ""
               }`}
-              onClick={() => setActiveCategory(category)}
+              onClick={() => selectCategory(category)}
             >
               {category}
             </button>

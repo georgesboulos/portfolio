@@ -4,7 +4,7 @@ const Contact = () => {
   return (
     <section className="contact" id="contact">
       <div className="container">
-        <span className="section-label">03. Contact</span>
+        <span className="section-label">04. Contact</span>
         <h2 className="section-title">
           Let’s Create <em>Something Great</em>
         </h2>
